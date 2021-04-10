@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\CMakeFiles\7add4decdbbb66b672d9d4efa1d5a4e8\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{927E8C94-3A61-3AEA-9000-DA1D1D7B9936}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

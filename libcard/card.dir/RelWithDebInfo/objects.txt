@@ -1,0 +1,4 @@
+D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/RelWithDebInfo/list.obj
+D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/RelWithDebInfo/display.obj
+D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/RelWithDebInfo/manipulate.obj
+D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/RelWithDebInfo/types.obj

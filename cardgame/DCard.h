@@ -8,6 +8,7 @@
 #define CW 50	/* CARD WIDTH */
 #define CH 80	/* CARD HEIGHT */
 #define CBOR 4	/* CARD BORDER (need to be even) */
+#define CFS 20  /* CARD FONT SIZE */
 
 typedef struct
 {

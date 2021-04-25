@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.20)
 
 project(cardgame)
 
@@ -6,6 +6,15 @@ set(LIBCARD ../libcard CACHE PATH "Path of libcard folder")
 set(RAYLIB ../raylib CACHE PATH "Path of raylib folder")
 
 set (LIBS card raylib)
+
+if(WIN32)
+    set (LIBS ${LIBS} winmm)
+endif()
+
+add_subdirectory(${LIBCARD} ${LIBCARD})
+
+add_executable(cardgame cardgame.c)
+
 if (WIN32)
     add_custom_command (
         TARGET cardgame POST_BUILD
@@ -14,10 +23,6 @@ if (WIN32)
         "${CMAKE_CURRENT_BINARY_DIR}/$<CONFIGURATION>"
     )
 endif()
-
-add_subdirectory(${LIBCARD} ${LIBCARD})
-
-add_executable(cardgame cardgame.c)
 
 target_include_directories(cardgame PUBLIC ${LIBCARD} ${RAYLIB}/include)
 

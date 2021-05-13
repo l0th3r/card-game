@@ -3,39 +3,38 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "mouse_handler.h"
 #include "DCard.h"
+#include "DDeck.h"
+#include "DSlot.h"
+
+#include "frame_container.h"
+#include "mouse_handler.h"
 
 /* DrawText(TextFormat("x:%d", 10), 20, 20, 5, BLACK); */
 
 int main()
-{
-    DCard* card;
-    Deck_t* deck = create_classic_52(2);
-    
+{    
+    init_frame();
     srand(time(0));
 
-    shuffle_deck(deck);
-    card = DCard_init(get_random_card(deck), 100, 100);
-
     InitWindow(1800, 1000, "main window");
+
+    update_mouse();
     /* RUNTIME */
     while (!WindowShouldClose())
     {
         update_mouse();
-        
-       
-        /* DRAW SECTION */
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
-
-        update_card(card);
+        
+        update_frame();
 
         EndDrawing();
     }
 
     dest_mouse();
-
+    dest_frame();
     CloseWindow();
     return 0;
 }

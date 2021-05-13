@@ -170,13 +170,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\card.vcxproj">
-      <Project>{1A648808-C1BB-3D19-B39C-401C3E11AB79}</Project>
-      <Name>card</Name>
-    </ProjectReference>
     <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\cardgame.vcxproj">
       <Project>{9ECBC05D-6930-3988-B6CB-B321E49AC757}</Project>
       <Name>cardgame</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\libcards.vcxproj">
+      <Project>{AF1B6521-2BA9-3E08-BB6C-403DB6496003}</Project>
+      <Name>libcards</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\liblist.vcxproj">
+      <Project>{5FEFEE9C-E9E5-3EDA-850B-AAF1C91D2C2D}</Project>
+      <Name>liblist</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

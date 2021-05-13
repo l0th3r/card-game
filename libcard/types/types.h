@@ -1,7 +1,6 @@
 #ifndef CARD_TYPES
 #define CARD_TYPES
 
-/* create types */
 typedef struct
 {	
 	/* position in the deck */
@@ -20,11 +19,13 @@ typedef struct
 	int is_used;
 } Card_t;
 
+LIST_DECLARE(Card_t);
+
 typedef struct
 {
-	Card_t* pile;
-	size_t size;
-} List_t, Discard_t;
+	list_Card_t* pile;
+	size_t cap;
+} List_t;
 
 typedef struct
 {
@@ -37,8 +38,6 @@ typedef struct
 
 typedef struct
 {
-	Card_t* pile;
-	size_t cap;
 	size_t count;
 } Hand_t;
 

@@ -4,10 +4,16 @@
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\cardgame.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DCard.c">
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DCard.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mouse_handler.c">
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DDeck.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\frame_container.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\mouse_handler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -18,5 +24,10 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{33D664DA-2712-34B7-A4EC-672C22C79DD1}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DSlot.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

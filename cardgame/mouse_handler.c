@@ -2,8 +2,11 @@
 
 #include <raylib.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "DCard.h"
+
+/*DrawText(TextFormat("x=%0.f y=%0.f", m->holded->x, m->holded->y), 5, 5, 10, BLACK);*/
 
 mouse_t* get_mouse()
 {
@@ -36,9 +39,7 @@ void update_mouse()
 	m->y = GetMouseY();
 	m->wheel = GetMouseWheelMove();
 
-	DrawText(TextFormat("x=%d y=%d", m->x, m->y), 5, 5, 10, BLACK);
-
-	m->left = IsMouseButtonPressed(MOUSE_LEFT_BUTTON);
+	m->left = IsMouseButtonDown(MOUSE_LEFT_BUTTON);
 	m->right = IsMouseButtonPressed(MOUSE_RIGHT_BUTTON);
 	m->mid = IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON);
 
@@ -55,6 +56,14 @@ bool is_mouse_hovering(int x1, int y1, int x2, int y2)
 		return false;
 }
 
+void give_card(Vector2* coord)
+{
+	mouse_t* m = get_mouse();
+
+	if (!m->holded)
+		m->holded = coord;
+}
+
 void check_holded()
 {
 	mouse_t* m = get_mouse();
@@ -63,7 +72,10 @@ void check_holded()
 	{
 		m->holded->x = m->x;
 		m->holded->y = m->y;
-	}		
+
+		if (m->left)
+			m->holded = NULL;
+	}
 }
 
 void dest_mouse()

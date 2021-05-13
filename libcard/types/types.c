@@ -139,13 +139,21 @@ Deck_t* create_classic_32(int joker_amount)
 	return create_deck(32, joker_amount, 2, 6);
 }
 
-Hand_t create_hand(int cap)
+/*List_t* create_list(int size)
 {
-	Hand_t hand;
+	List_t* to_return = malloc(sizeof(List_t));
 
-	hand.pile = malloc(sizeof(Card_t));
-	hand.count = 0;
-	hand.cap = cap;
+	if (to_return)
+	{
+		list_Card_t* pile = create_list_Card_t();
+	}
+
+	return to_return;
+}*/
+
+Hand_t* create_hand(int size)
+{
+	Hand_t* hand;
 
 	return hand;
 }
@@ -156,9 +164,16 @@ void dest_deck(Deck_t* target)
 	free(target);
 }
 
-void dest_hand(Hand_t* target)
+/*
+void dest_list(List_t* target)
 {
 	free(target->pile);
+	free(target);
+}*/
+
+void dest_hand(Hand_t* target)
+{
+	/*destroy_list(&target->list);*/
 	free(target);
 }
 
@@ -173,3 +188,5 @@ void dest_board(Board_t* target)
 	free(target->pile);
 	free(target);
 }
+
+LIST_DEFINE(Card_t);

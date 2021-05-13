@@ -3,7 +3,7 @@
 #define _MOUSE_HANDLER_H_
 
 #include <raylib.h>
-#include "DCard.h"
+#include <stdbool.h>
 
 /* define mouse struct */
 typedef struct
@@ -15,7 +15,7 @@ typedef struct
 	bool right;		/* true if mouse right button is pressed */
 	bool mid;		/* true if mouse mid button is pressed */
 
-	DCard* holded;
+	Vector2* holded;
 } mouse_t;
 
 /* get mouse struct */

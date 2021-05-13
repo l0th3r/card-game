@@ -3,18 +3,17 @@
 #define _D_CARD_H_
 
 #include <raylib.h>
-#include "libcard.h"
+#include <stdbool.h>
 
-#define CW 50	/* CARD WIDTH */
-#define CH 80	/* CARD HEIGHT */
-#define CBOR 4	/* CARD BORDER (need to be even) */
-#define CFS 20  /* CARD FONT SIZE */
+#include "libcard.h"
+#include "mouse_handler.h"
 
 typedef struct
 {
-    int x, y;
+    Vector2 pos;
     Card_t* c;
-    bool taken;
+    bool isTaken;
+    bool isHovered;
 } DCard;
 
 /* init a new dcard (liked to a Card_t != NULL) */

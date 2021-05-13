@@ -1,11 +1,10 @@
 #include "DCard.h"
-#include "mouse_handler.h"
-
-#include <libcard.h>
-#include <raylib.h>
+#include "DSizes.h"
+#include "frame_container.h"
 
 DCard* DCard_init(Card_t* card, int x, int y)
 {
+	frame_t* frame = init_frame();
 	DCard* dc = NULL;
 
 	if (!card)
@@ -15,10 +14,13 @@ DCard* DCard_init(Card_t* card, int x, int y)
 
 	if (dc)
 	{
-		dc->x = x;
-		dc->y = y;
+		dc->pos.x = x;
+		dc->pos.y = y;
 		dc->c = card;
-		dc->taken = false;
+		dc->isTaken = false;
+		dc->isHovered = false;
+		
+		frame_add_card(dc);
 	}
 
 	return dc;
@@ -29,18 +31,9 @@ void update_card(DCard* dcard)
 	mouse_t* m = get_mouse();
 
 	if (is_card_hovered(dcard))
-	{
-		SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
-		if (m->left)
-		{
-			if (!m->holded)
-				m->holded = dcard;
-			else
-				m->holded = NULL;
-		}
-	}
+		dcard->isHovered = true;
 	else
-		SetMouseCursor(MOUSE_CURSOR_ARROW);
+		dcard->isHovered = false;
 
 	DCard_draw(dcard);
 }
@@ -49,7 +42,7 @@ bool is_card_hovered(DCard* dcard)
 {
 	mouse_t* m = get_mouse();
 
-	if (is_mouse_hovering(dcard->x - CW / 2, dcard->y - CH / 2, dcard->x + CW / 2, dcard->y + CH / 2))
+	if (is_mouse_hovering(dcard->pos.x - CW / 2, dcard->pos.y - CH / 2, dcard->pos.x + CW / 2, dcard->pos.y + CH / 2))
 		return true;
 	else
 		return false;
@@ -57,8 +50,8 @@ bool is_card_hovered(DCard* dcard)
 
 void DCard_draw(const DCard* dcard)
 {
-	int posX = dcard->x - CW / 2;
-	int posY = dcard->y - CH / 2;
+	int posX = dcard->pos.x - CW / 2;
+	int posY = dcard->pos.y - CH / 2;
 
 	Color color; /* border color */
 

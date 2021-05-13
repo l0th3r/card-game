@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -102,10 +102,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -116,7 +116,16 @@
       <Message>
       </Message>
       <Command>setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../libcard/Debug/card.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/Debug
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../libcard/Debug/libcards.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../liblist/Debug/liblist.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/Debug
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -126,8 +135,8 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\Debug\card.lib;raylib.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\Debug\libcards.lib;raylib.lib;winmm.lib;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\Debug\liblist.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../liblist/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -141,7 +150,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -157,10 +166,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -171,7 +180,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Message>
       </Message>
       <Command>setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../libcard/Release/card.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/Release
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../libcard/Release/libcards.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../liblist/Release/liblist.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/Release
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -181,8 +199,8 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\Release\card.lib;raylib.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\Release\libcards.lib;raylib.lib;winmm.lib;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\Release\liblist.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../liblist/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -196,7 +214,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -212,10 +230,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -226,7 +244,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Message>
       </Message>
       <Command>setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../libcard/MinSizeRel/card.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/MinSizeRel
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../libcard/MinSizeRel/libcards.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../liblist/MinSizeRel/liblist.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/MinSizeRel
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -236,8 +263,8 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\MinSizeRel\card.lib;raylib.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\MinSizeRel\libcards.lib;raylib.lib;winmm.lib;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\MinSizeRel\liblist.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../liblist/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -251,7 +278,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>
@@ -266,10 +293,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\liblist;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\libcard;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\..\raylib-3.5.0_win64_msvc16\include;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -280,7 +307,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Message>
       </Message>
       <Command>setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../libcard/RelWithDebInfo/card.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/RelWithDebInfo
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../libcard/RelWithDebInfo/libcards.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../liblist/RelWithDebInfo/liblist.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/RelWithDebInfo
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -290,8 +326,8 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\RelWithDebInfo\card.lib;raylib.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\RelWithDebInfo\libcards.lib;raylib.lib;winmm.lib;D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\RelWithDebInfo\liblist.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../liblist/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../libcard/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/cardgame/../raylib-3.5.0_win64_msvc16/lib/$(Configuration);D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -362,8 +398,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\cardgame.c" />
-    <ClCompile Include="DCard.c" />
-    <ClCompile Include="mouse_handler.c" />
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DCard.c" />
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DDeck.c" />
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\frame_container.c" />
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\mouse_handler.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\ZERO_CHECK.vcxproj">
@@ -372,10 +410,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\card.vcxproj">
-      <Project>{1A648808-C1BB-3D19-B39C-401C3E11AB79}</Project>
-      <Name>card</Name>
+    <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\libcards.vcxproj">
+      <Project>{AF1B6521-2BA9-3E08-BB6C-403DB6496003}</Project>
+      <Name>libcards</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\liblist.vcxproj">
+      <Project>{5FEFEE9C-E9E5-3EDA-850B-AAF1C91D2C2D}</Project>
+      <Name>liblist</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DSlot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

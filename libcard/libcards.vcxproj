@@ -22,11 +22,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1A648808-C1BB-3D19-B39C-401C3E11AB79}</ProjectGuid>
+    <ProjectGuid>{AF1B6521-2BA9-3E08-BB6C-403DB6496003}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
-    <ProjectName>card</ProjectName>
+    <ProjectName>libcards</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -60,32 +60,33 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">card.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">card</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libcards.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libcards</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">card.dir\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">card</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libcards.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libcards</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\MinSizeRel\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">card.dir\MinSizeRel\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">card</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libcards.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libcards</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\RelWithDebInfo\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">card.dir\RelWithDebInfo\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">card</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libcards.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libcards</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -96,14 +97,15 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";card_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";libcards_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";card_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";libcards_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -118,7 +120,7 @@ cd D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard
 if %errorlevel% neq 0 goto :cmEnd
 D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E __create_def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/Debug/exports.def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/Debug//objects.txt
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/Debug/exports.def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/Debug//objects.txt
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -127,15 +129,27 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../liblist/Debug/liblist.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\Debug\liblist.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Debug/card.lib</ImportLibrary>
-      <ModuleDefinitionFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/Debug/exports.def</ModuleDefinitionFile>
-      <ProgramDataBaseFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Debug/card.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Debug/libcards.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/Debug/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Debug/libcards.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -144,6 +158,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -152,16 +167,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";card_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";libcards_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";card_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";libcards_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -176,7 +192,7 @@ cd D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard
 if %errorlevel% neq 0 goto :cmEnd
 D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E __create_def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/Release/exports.def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/Release//objects.txt
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/Release/exports.def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/Release//objects.txt
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -185,15 +201,27 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../liblist/Release/liblist.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\Release\liblist.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Release/card.lib</ImportLibrary>
-      <ModuleDefinitionFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/Release/exports.def</ModuleDefinitionFile>
-      <ProgramDataBaseFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Release/card.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Release/libcards.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/Release/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/Release/libcards.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -202,6 +230,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -210,16 +239,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";card_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";libcards_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";card_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";libcards_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -234,7 +264,7 @@ cd D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard
 if %errorlevel% neq 0 goto :cmEnd
 D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E __create_def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/MinSizeRel/exports.def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/MinSizeRel//objects.txt
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/MinSizeRel/exports.def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/MinSizeRel//objects.txt
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -243,15 +273,27 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../liblist/MinSizeRel/liblist.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\MinSizeRel\liblist.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/MinSizeRel/card.lib</ImportLibrary>
-      <ModuleDefinitionFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/MinSizeRel/exports.def</ModuleDefinitionFile>
-      <ProgramDataBaseFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/MinSizeRel/card.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/MinSizeRel/libcards.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/MinSizeRel/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/MinSizeRel/libcards.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -260,6 +302,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>
@@ -269,14 +312,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";card_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";libcards_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";card_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";libcards_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\..\liblist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -291,7 +335,7 @@ cd D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard
 if %errorlevel% neq 0 goto :cmEnd
 D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E __create_def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/RelWithDebInfo/exports.def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/RelWithDebInfo//objects.txt
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/RelWithDebInfo/exports.def D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/RelWithDebInfo//objects.txt
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -300,15 +344,27 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different ../liblist/RelWithDebInfo/liblist.dll D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\RelWithDebInfo\liblist.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist;D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/../liblist/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/RelWithDebInfo/card.lib</ImportLibrary>
-      <ModuleDefinitionFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/card.dir/RelWithDebInfo/exports.def</ModuleDefinitionFile>
-      <ProgramDataBaseFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/RelWithDebInfo/card.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/RelWithDebInfo/libcards.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/RelWithDebInfo/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/RelWithDebInfo/libcards.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -376,7 +432,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\display\display.c" />
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\manipulate\manipulate.c" />
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\types\types.c" />
-    <ClCompile Include="list\list.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\ZERO_CHECK.vcxproj">
@@ -385,10 +440,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="list\list.h" />
-    <ClInclude Include="list\list_generic.h" />
+    <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\liblist\liblist.vcxproj">
+      <Project>{5FEFEE9C-E9E5-3EDA-850B-AAF1C91D2C2D}</Project>
+      <Name>liblist</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,9 +10,6 @@
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\types\types.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="list\list.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\libcard\CMakeLists.txt" />
@@ -21,13 +18,5 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{33D664DA-2712-34B7-A4EC-672C22C79DD1}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="list\list.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="list\list_generic.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

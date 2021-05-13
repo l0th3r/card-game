@@ -1,0 +1,3 @@
+D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/MinSizeRel/display.obj
+D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/MinSizeRel/manipulate.obj
+D:/etudes/BELLECOUR/year1/PROG/raylib/mainproject/libcard/libcards.dir/MinSizeRel/types.obj

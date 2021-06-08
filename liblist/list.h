@@ -13,39 +13,38 @@ struct list_node
     list_node* next;
 };
 
-/* to use, point to the first node */
+/* point to the first node, hold the number of nodes */
 typedef struct
 {
     list_node* begin;
     size_t count;
 } list;
 
-
-/* 01 */
+/* Initialize the list */
 list* create_list();
 
-/* 02 */
+/* Return the number of nodes in the list */
 size_t list_count(const list* _list);
 
-/* 03 */
+/* Return the node at the given index */
 list_node* list_get_node(list* _list, size_t _index);
 
-/* 04 */
+/* Add a new node at the end of the list with the given data */
 size_t list_add(list* _list, void* _data);
 
-/* 05 */
+/* Return the data of a node */
 void* list_get(list* _list, size_t _index);
 
-/* 06 */
+/* Set the data of a node, return true if successful */
 bool list_set(list* _list, size_t _index, void* data);
 
-/* 07 */
+/* Insert a new node at a certain index with the given data return true if successful */
 bool list_insert(list* _list, size_t _index, void* _data);
 
-/* 08 */
+/* Remove node and data at this index */
 bool list_remove(list* _list, size_t _index);
 
-/* 09 */
+/* Clear and remove all the list (not the data) */
 void destroy_list(list* _list);
 
 #endif

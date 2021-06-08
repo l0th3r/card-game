@@ -24,42 +24,20 @@ LIST_DECLARE(Card_t);
 typedef struct
 {
 	list_Card_t* pile;
-	size_t cap;
-} List_t;
-
-typedef struct
-{
-	Card_t* pile;
 	size_t size;
 	size_t j_nb;
 	int gap_start;
 	int gap_end;
 } Deck_t;
 
-typedef struct
-{
-	size_t count;
-} Hand_t;
-
-typedef struct
-{
-	Card_t** pile; 	/* main board, pile[col][row] */
-	Card_t* side; 	/* side cards */
-	size_t side_s; 	/* amount of side cards */
-	size_t col_s; 	/* amount of colomns */
-	size_t row_s; 	/* amount of rows */
-} Board_t;
-
 /* allocate */
-Card_t create_card(int id, int suit, int position);
+Card_t* create_card(int id, int suit, int position);
 Deck_t* create_deck(int length, int joker_len, int gap_start, int gap_end);
-Board_t* create_board(size_t col_amount, size_t row_amount, size_t side_size);
 Deck_t* create_classic_52(int joker_amount);
 Deck_t* create_classic_32(int joker_amount);
 
 /* destroy */
 void dest_deck(Deck_t* target);
-void dest_hand(Hand_t* target);
-void dest_board(Board_t* target);
+void dest_card(Card_t* target);
 
 #endif

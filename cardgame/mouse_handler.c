@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 #include "DCard.h"
+#include "DSizes.h"
 
 /*DrawText(TextFormat("x=%0.f y=%0.f", m->holded->x, m->holded->y), 5, 5, 10, BLACK);*/
 
@@ -21,6 +22,8 @@ mouse_t* get_mouse()
 			mouse->y = 0;
 			mouse->wheel = 0;
 
+			mouse->left_p = false;
+			mouse->left_r = false;
 			mouse->left = false;
 			mouse->right = false;
 			mouse->mid = false;
@@ -39,7 +42,10 @@ void update_mouse()
 	m->y = GetMouseY();
 	m->wheel = GetMouseWheelMove();
 
+	m->left_p = IsMouseButtonPressed(MOUSE_LEFT_BUTTON);
+	m->left_r = IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
 	m->left = IsMouseButtonDown(MOUSE_LEFT_BUTTON);
+	
 	m->right = IsMouseButtonPressed(MOUSE_RIGHT_BUTTON);
 	m->mid = IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON);
 
@@ -56,7 +62,24 @@ bool is_mouse_hovering(int x1, int y1, int x2, int y2)
 		return false;
 }
 
-void give_card(Vector2* coord)
+bool is_object_hovered(Vector2* coord)
+{
+	mouse_t* m = get_mouse();
+
+	if (is_mouse_hovering(coord->x - CW / 2, coord->y - CH / 2, coord->x + CW / 2, coord->y + CH / 2))
+		return true;
+	else
+		return false;
+}
+
+void mouse_release()
+{
+	mouse_t* m = get_mouse();
+
+	m->holded = NULL;
+}
+
+void grab_object(Vector2* coord)
 {
 	mouse_t* m = get_mouse();
 
@@ -70,11 +93,13 @@ void check_holded()
 
 	if (m->holded != NULL)
 	{
-		m->holded->x = m->x;
-		m->holded->y = m->y;
-
-		if (m->left)
+		if (m->left_r)
 			m->holded = NULL;
+		else
+		{
+			m->holded->x = m->x;
+			m->holded->y = m->y;
+		}
 	}
 }
 

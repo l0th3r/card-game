@@ -4,7 +4,6 @@
 
 #include "list.h"
 
-/* 01 */
 list* create_list()
 {
     list* to_return = malloc(sizeof(list));
@@ -23,15 +22,11 @@ list* create_list()
     return to_return;
 }
 
-
-/* 02 */
 size_t list_count(const list* _list)
 {
     return _list->count;
 }
 
-
-/* 03 */
 list_node* list_get_node(list* _list, size_t _index)
 {
     int i = 0;
@@ -47,8 +42,6 @@ list_node* list_get_node(list* _list, size_t _index)
     return to_return;
 }
 
-
-/* 04 */
 size_t list_add(list* _list, void* _data)
 {
     list_node* to_add = NULL;
@@ -87,8 +80,6 @@ size_t list_add(list* _list, void* _data)
     return list_count(_list);
 }
 
-
-/* 05 */
 void* list_get(list* _list, size_t _index)
 {
     list_node* temp = list_get_node(_list, _index);
@@ -99,8 +90,6 @@ void* list_get(list* _list, size_t _index)
         return NULL;
 }
 
-
-/* 06 */
 bool list_set(list* _list, size_t _index, void* _data)
 {
     bool to_return = false;
@@ -115,8 +104,6 @@ bool list_set(list* _list, size_t _index, void* _data)
     return to_return;
 }
 
-
-/* 07 */
 bool list_insert(list* _list, size_t _index, void* _data)
 {
     bool to_return = false;
@@ -158,7 +145,6 @@ bool list_insert(list* _list, size_t _index, void* _data)
     return to_return;
 }
 
-/* 08 */
 bool list_remove(list* _list, size_t _index)
 {
     bool to_return = false;
@@ -186,7 +172,6 @@ bool list_remove(list* _list, size_t _index)
     return to_return;
 }
 
-/* 09 */
 void destroy_list(list* _list)
 {
     int i = 0;
@@ -195,19 +180,3 @@ void destroy_list(list* _list)
 
     free(_list);
 }
-
-/* 10 */
-/*
-    The difference between dynamic array and list is that
-    each elemet of a list is not in line in the memory (pas a la suite).
-    witch means that with only one element of a list you can get all of them without manipulating all the list.
-    With the array, if I need to manipulate the values, I need to get them all before changing one.
-    With the list I can get only one and change it's values.
-*/
-
-/*
-    I think that in a video game for exemple, to store all the mobs we use a list instead of an array,
-    so that when you want to modify one, you dont have to manipulate all of them.
-    With an array, the problem is that you always have to import or get the all array. The problem is that in a video game, we can have a lot of ennemies at the same time.
-    And importing all of them everytime you need to access an enemie data, will be less optimised because it could take more time to the computer to get all of them.
-*/

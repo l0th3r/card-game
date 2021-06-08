@@ -19,6 +19,8 @@ int main()
 
     InitWindow(1800, 1000, "main window");
 
+    DDeck_init(200, 200);
+
     update_mouse();
     /* RUNTIME */
     while (!WindowShouldClose())
@@ -33,8 +35,8 @@ int main()
         EndDrawing();
     }
 
-    dest_mouse();
     dest_frame();
+    dest_mouse();
     CloseWindow();
     return 0;
 }

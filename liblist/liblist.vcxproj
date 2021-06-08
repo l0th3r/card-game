@@ -383,6 +383,11 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="foreach.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="list_generic.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -8,16 +8,26 @@
 #include "DCard.h"
 #include "DSizes.h"
 #include "mouse_handler.h"
-#include "frame_container.h"
 
 typedef struct
 {
 	Vector2 pos;
-	DCard* top;
 	Deck_t* d;
-	bool isHidden;
+	bool isHovered;
 } DDeck;
 
-DDeck* DDeck_init(Deck_t* deck, bool isHidden, int x, int y);
+DDeck* DDeck_init(int x, int y);
+
+/* draw and update ddeck */
+void DDeck_update(DDeck* ddeck);
+
+/* draw ddeck on screen */
+void DDeck_draw(const DDeck* ddeck);
+
+/* draw card from deck */
+void DDeck_draw_card(DDeck* ddeck);
+
+/* destroy deck */
+void DDeck_destroy(DDeck* ddeck);
 
 #endif

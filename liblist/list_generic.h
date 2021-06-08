@@ -2,6 +2,7 @@
 #define _LIST_GENERIC_
 
 #include "list.h"
+#include "foreach.h"
 
 /* 1 */
 #define LIST_TYPE(TYPE)\
@@ -100,6 +101,9 @@
 #define LIST_METHOD_DECL_VAL_GET(TYPE)\
     TYPE list_##TYPE##_get(list_##TYPE * _list, size_t _index);
 
+#define LIST_METHOD_DECL_VAL_GET_ADD(TYPE)\
+    TYPE* list_##TYPE##_get_address(list_##TYPE * _list, size_t _index);
+
 #define LIST_METHOD_DECL_VAL_SET(TYPE)\
     bool list_##TYPE##_set(list_##TYPE * _list, size_t _index, TYPE _value);
 
@@ -128,6 +132,13 @@
     {\
         TYPE* temp = list_get(_list->_list, _index);\
         return *temp;\
+    }\
+
+#define LIST_METHOD_DEFN_VAL_GET_ADD(TYPE)\
+    TYPE* list_##TYPE##_get_address(list_##TYPE * _list, size_t _index)\
+    {\
+        TYPE* temp = list_get(_list->_list, _index);\
+        return temp;\
     }\
 
 #define LIST_METHOD_DEFN_VAL_SET(TYPE)\
@@ -186,12 +197,12 @@
 
 #define LIST_VAL_DECLARE(TYPE)\
     LIST_TYPE(TYPE) LIST_METHOD_DECL_CREATE(TYPE) LIST_METHOD_DECL_VAL_DESTROY(TYPE)\
-    LIST_METHOD_DECL_VAL_ADD(TYPE) LIST_METHOD_DECL_VAL_GET(TYPE) LIST_METHOD_DECL_VAL_SET(TYPE)\
+    LIST_METHOD_DECL_VAL_ADD(TYPE) LIST_METHOD_DECL_VAL_GET(TYPE) LIST_METHOD_DECL_VAL_GET_ADD(TYPE) LIST_METHOD_DECL_VAL_SET(TYPE)\
     LIST_METHOD_DECL_VAL_INSERT(TYPE) LIST_METHOD_DECL_VAL_REMOVE(TYPE) LIST_METHOD_DECL_COUNT(TYPE)
 
 #define LIST_VAL_DEFINE(TYPE)\
     LIST_METHOD_DEFN_CREATE(TYPE) LIST_METHOD_DEFN_VAL_DESTROY(TYPE)\
-    LIST_METHOD_DEFN_VAL_ADD(TYPE) LIST_METHOD_DEFN_VAL_GET(TYPE) LIST_METHOD_DEFN_VAL_SET(TYPE)\
+    LIST_METHOD_DEFN_VAL_ADD(TYPE) LIST_METHOD_DEFN_VAL_GET(TYPE) LIST_METHOD_DEFN_VAL_GET_ADD(TYPE) LIST_METHOD_DEFN_VAL_SET(TYPE)\
     LIST_METHOD_DEFN_VAL_INSERT(TYPE) LIST_METHOD_DEFN_VAL_REMOVE(TYPE) LIST_METHOD_DEFN_COUNT(TYPE)
 
 #endif

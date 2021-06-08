@@ -16,6 +16,9 @@
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\mouse_handler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DDisc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\CMakeLists.txt" />
@@ -27,6 +30,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DSlot.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DDisc.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -75,7 +75,6 @@ bool is_object_hovered(Vector2* coord)
 void mouse_release()
 {
 	mouse_t* m = get_mouse();
-
 	m->holded = NULL;
 }
 

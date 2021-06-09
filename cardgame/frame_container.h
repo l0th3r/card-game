@@ -16,6 +16,8 @@ LIST_DECLARE(DDeck);
 
 typedef struct
 {
+	DCard* holded_card;
+
 	bool can_move_cards;
 	bool can_move_decks;
 	bool can_move_discs;
@@ -36,25 +38,24 @@ frame_t* init_frame();
 void update_frame();
 
 /* select the targetted card */
-void frame_select_card(DCard* dcard, int index);
+void frame_select_card(DCard* dcard);
+/* unselect the current selected card */
+void frame_unselect_card();
 
-/* draw frame cards */
+/* draw frame */
 void draw_frame_cards();
-
-/* draw frame decks */
 void draw_frame_decks();
+void draw_frame_discs();
 
-/* update frame cards */
+/* update frame */
 void update_frame_cards();
-
-/* update frame decks */
 void update_frame_decks();
+void update_frame_discs();
 
-/* add card to frame */
+/* add to frame */
 void frame_add_card(DCard* dcard);
-
-/* add deck to frame*/
 void frame_add_deck(DDeck* ddeck);
+void frame_add_disc(DDisc* ddisc);
 
 /* destroy all cards */
 void dest_frame();

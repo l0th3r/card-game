@@ -37,11 +37,16 @@ void DDeck_draw(const DDeck* ddeck)
 
 	/* Draw content */
 	if (ddeck->d->size > 0)
-		DrawRectangle(posX, posY, CW, CH, WHITE);
+	{
+		if(ddeck->isHovered)
+			DrawRectangle(posX, posY, CW, CH, LIGHTGRAY);
+		else
+			DrawRectangle(posX, posY, CW, CH, WHITE);
+	}
 	else
 		DrawRectangle(posX, posY, CW, CH, ORANGE);
 	
-	DrawText(TextFormat("%d left", ddeck->d->size), posX, posY, 10, BLACK);
+	DrawText(TextFormat("%d left", ddeck->d->size), posX + 3, posY, 10, BLACK);
 	DrawText(TextFormat("D"), posX + CW / 2 - 10, posY + CH / 2 - 10, 20, BLACK);
 }
 

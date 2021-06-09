@@ -24,6 +24,9 @@ void DDisc_update(DDisc* ddisc);
 /* draw ddeck on screen */
 void DDisc_draw(const DDisc* ddisc);
 
+/* add card to discard pile */
+void DDisc_add_card(DDisc* ddisc, DCard* dcard);
+
 /* destroy deck */
 void DDisc_destroy(DDisc* ddisc);
 

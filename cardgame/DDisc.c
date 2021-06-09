@@ -11,6 +11,7 @@ DDisc* DDisc_init(int x, int y)
 		ddisc->pile = create_list_Card_t();
 
 		ddisc->isHovered = false;
+		frame_add_disc();
 	}
 
 	return ddisc;
@@ -37,14 +38,22 @@ void DDisc_draw(const DDisc* ddisc)
 	DrawRectangle(posX - (CBOR + 2) / 2, posY - (CBOR + 2) / 2, CW + (CBOR + 2), CH + (CBOR + 2), DARKGRAY);
 
 	/* Draw content */
-	DrawRectangle(posX, posY, CW, CH, WHITE);
+	if(ddisc->isHovered)
+		DrawRectangle(posX, posY, CW, CH, LIGHTGRAY);
+	else
+		DrawRectangle(posX, posY, CW, CH, WHITE);
 
-	DrawText(TextFormat("%d left", ddisc->pile->_list->count), posX, posY, 10, BLACK);
-	DrawText(TextFormat("XX"), posX + CW / 2 - 10, posY + CH / 2 - 10, 20, BLACK);
+	DrawText(TextFormat("%d inside", ddisc->pile->_list->count), posX + 3, posY, 10, BLACK);
+	DrawText(TextFormat("discard pile"), posX + CW / 2 - 10, posY + CH / 2 - 10, 10, BLACK);
+}
+
+void DDisc_add_card(DDisc* ddisc, DCard* dcard)
+{
+	list_Card_t_add(ddisc->pile, dcard->c);
+	free(dcard);
 }
 
 void DDisc_destroy(DDisc* ddisc)
 {
 	destroy_list_Card_t(ddisc->pile);
-	free(ddisc);
 }

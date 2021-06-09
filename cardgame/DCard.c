@@ -19,6 +19,7 @@ DCard* DCard_init(Card_t* card, int x, int y)
 		dc->c = card;
 		dc->isTaken = false;
 		dc->isHovered = false;
+		dc->frame_index = -1;
 		
 		frame_add_card(dc);
 	}
@@ -48,7 +49,11 @@ void DCard_draw(const DCard* dcard)
 	DrawRectangle(posX - CBOR / 2, posY - CBOR / 2, CW + CBOR, CH + CBOR, clr);
 	
 	/* Draw content */
-	DrawRectangle(posX, posY, CW, CH, WHITE);
+	if(dcard->isHovered)
+		DrawRectangle(posX, posY, CW, CH, LIGHTGRAY);
+	else
+		DrawRectangle(posX, posY, CW, CH, WHITE);
+
 	DrawText(TextFormat("%s", str), (posX + CW / 2) - (strlen(str) * 5), (posY + CH / 2) - 10, 20, BLACK);
 }
 

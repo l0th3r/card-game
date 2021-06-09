@@ -14,6 +14,7 @@ typedef struct
     Card_t* c;
     bool isTaken;
     bool isHovered;
+    int frame_index;
 } DCard;
 
 /* init a new dcard (liked to a Card_t != NULL) */

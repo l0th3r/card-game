@@ -151,7 +151,6 @@ void update_frame_discs()
 		}
 		else if (ddisc->isHovered && frame->holded_card && mouse->left_r)
 		{
-			printf("HELLOOO\n");
 			list_DCard_remove(frame->cards, frame->holded_card->frame_index);
 			DDisc_add_card(ddisc, frame->holded_card);
 			frame_unselect_card();

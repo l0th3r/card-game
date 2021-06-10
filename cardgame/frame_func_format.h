@@ -2,7 +2,6 @@
 #ifndef _FRAME_FUNC_FORMAT_
 #define _FRAME_FUNC_FORMAT_
 
-
 /* DECL */
 #define DRAW_FRAME_DECL(TYPE, KEYWORD, FRAMENAME)\
 	void draw_frame_##KEYWORD();

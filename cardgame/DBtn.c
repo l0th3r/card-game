@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "DDeck.h"
+#include "DDisc.h"
 #include "DSizes.h"
 
 DBtn* DBtn_init(btn_type type, const char* content, Color color, int x, int y)
@@ -61,6 +62,8 @@ void DBtn_event(const DBtn* dbtn)
 	case BTN_ADD_DECK:
 		DDeck_init(mouse->x, mouse->y);
 		break;
+	case BTN_ADD_DISC:
+		DDisc_init(mouse->x, mouse->y);
 	}
 }
 

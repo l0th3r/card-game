@@ -20,9 +20,9 @@ int main()
     InitWindow(1800, 1000, "main window");
 
     DPlate_init(500, 500, 800, 500);
-    DDisc_init(747, 590);
     
     DBtn_init(BTN_ADD_DECK, "Add Deck", VIOLET, 175, 280);
+    DBtn_init(BTN_ADD_DISC, "Add Discard pile", VIOLET, 175, 330);
 
     update_mouse();
     /* RUNTIME */

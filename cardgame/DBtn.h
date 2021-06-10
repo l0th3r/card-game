@@ -10,6 +10,7 @@
 typedef enum
 {
     BTN_ADD_DECK = 0,
+    BTN_ADD_DISC
 } btn_type;
 
 typedef struct

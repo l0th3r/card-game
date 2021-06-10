@@ -39,12 +39,12 @@ void DDisc_draw(const DDisc* ddisc)
 
 	/* Draw content */
 	if(ddisc->isHovered)
-		DrawRectangle(posX, posY, CW, CH, LIGHTGRAY);
+		DrawRectangle(posX, posY, CW, CH, DARKGRAY);
 	else
 		DrawRectangle(posX, posY, CW, CH, WHITE);
 
 	DrawText(TextFormat("%d cards", ddisc->pile->_list->count), posX + 3, posY, 10, BLACK);
-	DrawText(TextFormat("discard"), posX + 2, posY + CH / 2 - 10, 10, BLACK);
+	DrawText(TextFormat("Discard"), posX + 5, posY + CH / 2 - 10, 10, BLACK);
 }
 
 void DDisc_add_card(DDisc* ddisc, DCard* dcard)

@@ -35,18 +35,18 @@ void DDeck_draw(const DDeck* ddeck)
 	if (ddeck->d->size > 0)
 	{
 		if(ddeck->isHovered)
-			DrawRectangle(posX, posY, CW, CH, LIGHTGRAY);
+			DrawRectangle(posX, posY, CW, CH, ORANGE);
 		else
 			DrawRectangle(posX, posY, CW, CH, WHITE);
 	}
 	else
-		DrawRectangle(posX, posY, CW, CH, ORANGE);
+		DrawRectangle(posX, posY, CW, CH, LIGHTGRAY);
 	
 	DrawText(TextFormat("%d left", ddeck->d->size), posX + 3, posY, 10, BLACK);
-	DrawText(TextFormat("D"), posX + CW / 2 - 10, posY + CH / 2 - 10, 20, BLACK);
+	DrawText(TextFormat("Deck"), posX + 5, posY + CH / 2 - 10, 10, BLACK);
 }
 
-void DDeck_draw_card(DDeck* ddeck)
+void DDeck_draw_card(const DDeck* ddeck)
 {
 	mouse_t* m = get_mouse();
 	DCard_init(draw_card(ddeck->d), m->x, m->y);

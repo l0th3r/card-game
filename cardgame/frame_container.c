@@ -12,9 +12,9 @@ frame_t* init_frame()
 			frame->holded_card = NULL;
 
 			frame->can_move_cards = true;
-			frame->can_move_decks = false;
-			frame->can_move_discs = false;
-			frame->can_move_btns = false;
+			frame->can_move_decks = true;
+			frame->can_move_discs = true;
+			frame->can_move_btns = true;
 
 			frame->is_hovering = false;
 			frame->can_click_this_frame = true;
@@ -46,7 +46,7 @@ void update_frame()
 	update_frame_discs();
 	update_frame_btns();
 	
-	if (mouse->left_r)
+	if (mouse->right_r)
 	{
 		mouse_release();
 		frame->holded_card = NULL;
@@ -109,10 +109,14 @@ void update_frame_cards()
 		if (dcard->isHovered && frame->can_move_cards)
 			frame->is_hovering = true;
 
-		if (!mouse->holded && mouse->left_p && dcard->isHovered && frame->can_move_cards && frame->can_click_this_frame)
+		if (mouse->right_p && !mouse->holded && dcard->isHovered && frame->can_move_cards && frame->can_click_this_frame)
 		{
 			frame_select_card(dcard);
 			grab_object(&dcard->pos);
+			frame->can_click_this_frame = false;
+		}
+		else if (!mouse->holded && mouse->left_p && dcard->isHovered && frame->can_click_this_frame)
+		{
 			frame->can_click_this_frame = false;
 		}
 
@@ -134,7 +138,7 @@ void update_frame_decks()
 		if (ddeck->isHovered)
 			frame->is_hovering = true;
 
-		if (!mouse->holded && mouse->left_p && ddeck->isHovered && frame->can_move_decks && frame->can_click_this_frame)
+		if (!mouse->holded && mouse->right_p && ddeck->isHovered && frame->can_move_decks && frame->can_click_this_frame)
 		{
 			grab_object(&ddeck->pos);
 			frame->can_click_this_frame = false;
@@ -161,12 +165,12 @@ void update_frame_discs()
 		if (ddisc->isHovered)
 			frame->is_hovering = true;
 
-		if (!mouse->holded && mouse->left && ddisc->isHovered && frame->can_move_discs && frame->can_click_this_frame)
+		if (!mouse->holded && mouse->right_p && ddisc->isHovered && frame->can_move_discs && frame->can_click_this_frame)
 		{
 			grab_object(&ddisc->pos);
 			frame->can_click_this_frame = false;
 		}
-		else if (ddisc->isHovered && frame->holded_card && mouse->left_r)
+		else if (ddisc->isHovered && frame->holded_card && mouse->right_r)
 		{
 			list_DCard_remove(frame->cards, frame->holded_card->frame_index);
 			DDisc_add_card(ddisc, frame->holded_card);
@@ -190,7 +194,12 @@ void update_frame_btns()
 		if (dbtn->isHovered)
 			frame->is_hovering = true;
 
-		if (!mouse->holded && mouse->left_p && dbtn->isHovered && frame->can_click_this_frame)
+		if (!mouse->holded && mouse->right_p && dbtn->isHovered && frame->can_move_btns && frame->can_click_this_frame)
+		{
+			grab_object(&dbtn->pos);
+			frame->can_click_this_frame = false;
+		}
+		else if (!mouse->holded && mouse->left_p && dbtn->isHovered && frame->can_click_this_frame)
 		{
 			DBtn_event(dbtn);
 			frame->can_click_this_frame = false;
@@ -214,25 +223,25 @@ void frame_unselect_card()
 	frame->holded_card = NULL;
 }
 
-void frame_add_card(DCard* dcard)
+void frame_add_card(const DCard* dcard)
 {
 	frame_t* frame = init_frame();
 	list_DCard_add(frame->cards, dcard);
 }
 
-void frame_add_deck(DDeck* ddeck)
+void frame_add_deck(const DDeck* ddeck)
 {
 	frame_t* frame = init_frame();
 	list_DDeck_add(frame->decks, ddeck);
 }
 
-void frame_add_disc(DDisc* ddisc)
+void frame_add_disc(const DDisc* ddisc)
 {
 	frame_t* frame = init_frame();
 	list_DDisc_add(frame->discs, ddisc);
 }
 
-void frame_add_btn(DBtn* dbtn)
+void frame_add_btn(const DBtn* dbtn)
 {
 	frame_t* frame = init_frame();
 	list_DBtn_add(frame->dbtns, dbtn);

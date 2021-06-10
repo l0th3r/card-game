@@ -28,7 +28,7 @@ DBtn* DBtn_init(btn_type type, const char* content, Color color, int x, int y);
 
 void DBtn_draw(const DBtn* dbtn);
 
-void DBtn_event(DBtn* dbtn);
+void DBtn_event(const DBtn* dbtn);
 
 void DBtn_destroy(DBtn* dbtn);
 

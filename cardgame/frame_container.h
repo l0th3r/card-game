@@ -57,10 +57,10 @@ void update_frame_discs();
 void update_frame_btns();
 
 /* add to frame */
-void frame_add_card(DCard* dcard);
-void frame_add_deck(DDeck* ddeck);
-void frame_add_disc(DDisc* ddisc);
-void frame_add_btn(DBtn* dbtn);
+void frame_add_card(const DCard* dcard);
+void frame_add_deck(const DDeck* ddeck);
+void frame_add_disc(const DDisc* ddisc);
+void frame_add_btn(const DBtn* dbtn);
 
 /* destroy all cards */
 void dest_frame();

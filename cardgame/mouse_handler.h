@@ -15,7 +15,10 @@ typedef struct
 	bool left_r;	/* true if mouse left button is released */
 	bool left;		/* true if mouse left button is down */
 	
-	bool right;		/* true if mouse right button is pressed */
+	bool right_p;	/* true if mouse right button is pressed */
+	bool right_r;	/* true if mouse right button is released */
+	bool right;		/* true if mouse right button is down */
+
 	bool mid;		/* true if mouse mid button is pressed */
 
 	Vector2* holded;

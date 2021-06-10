@@ -52,14 +52,14 @@ void DBtn_draw(const DBtn* dbtn)
 	DrawText(dbtn->text, posX + 10, posY + BH / 2 - 3, 10, BLACK);
 }
 
-void DBtn_event(DBtn* dbtn)
+void DBtn_event(const DBtn* dbtn)
 {
 	mouse_t* mouse = get_mouse();
 
 	switch (dbtn->type)
 	{
 	case BTN_ADD_DECK:
-		grab_object(&DDeck_init(mouse->x, mouse->y)->pos);
+		DDeck_init(mouse->x, mouse->y);
 		break;
 	}
 }

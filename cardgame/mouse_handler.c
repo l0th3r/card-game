@@ -25,7 +25,11 @@ mouse_t* get_mouse()
 			mouse->left_p = false;
 			mouse->left_r = false;
 			mouse->left = false;
+
+			mouse->right_p = false;
+			mouse->right_r = false;
 			mouse->right = false;
+
 			mouse->mid = false;
 
 			mouse->holded = NULL;
@@ -46,7 +50,10 @@ void update_mouse()
 	m->left_r = IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
 	m->left = IsMouseButtonDown(MOUSE_LEFT_BUTTON);
 	
-	m->right = IsMouseButtonPressed(MOUSE_RIGHT_BUTTON);
+	m->right_p = IsMouseButtonPressed(MOUSE_RIGHT_BUTTON);
+	m->right_r = IsMouseButtonReleased(MOUSE_RIGHT_BUTTON);
+	m->right = IsMouseButtonDown(MOUSE_RIGHT_BUTTON);
+
 	m->mid = IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON);
 
 	check_holded();
@@ -92,7 +99,7 @@ void check_holded()
 
 	if (m->holded != NULL)
 	{
-		if (m->left_r)
+		if (m->right_r)
 			m->holded = NULL;
 		else
 		{

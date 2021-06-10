@@ -29,11 +29,7 @@ DCard* DCard_init(Card_t* card, int x, int y)
 
 void DCard_update(DCard* dcard)
 {
-	if (is_object_hovered(&dcard->pos))
-		dcard->isHovered = true;
-	else
-		dcard->isHovered = false;
-
+	dcard->isHovered = is_object_hovered(&dcard->pos);
 	DCard_draw(dcard);
 }
 

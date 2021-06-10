@@ -19,6 +19,9 @@
     <ClCompile Include="DDisc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DBtn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\CMakeLists.txt" />
@@ -29,10 +32,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DSlot.h">
+    <ClInclude Include="DDisc.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="DDisc.h">
+    <ClInclude Include="DBtn.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

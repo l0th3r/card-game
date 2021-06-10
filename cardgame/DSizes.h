@@ -11,4 +11,7 @@
 #define SH CH + 5		/* SLOT HEIGHT */
 #define SBOR CBOR + 4	/* SLOT BORDER (need to be even) */
 
+#define BW 100			/* BUTTON WIDTH */
+#define BH 25			/* BUTTON HEIGHT */
+
 #endif

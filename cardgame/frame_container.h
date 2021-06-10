@@ -7,12 +7,13 @@
 
 #include "DCard.h"
 #include "DDeck.h"
-#include "DSlot.h"
+#include "DBtn.h"
 #include "DDisc.h"
 
 LIST_DECLARE(DDisc);
 LIST_DECLARE(DCard);
 LIST_DECLARE(DDeck);
+LIST_DECLARE(DBtn);
 
 typedef struct
 {
@@ -21,7 +22,7 @@ typedef struct
 	bool can_move_cards;
 	bool can_move_decks;
 	bool can_move_discs;
-	bool can_move_slots;
+	bool can_move_btns;
 
 	bool is_hovering;
 	bool can_click_this_frame;
@@ -29,6 +30,7 @@ typedef struct
 	list_DCard* cards;
 	list_DDeck* decks;
 	list_DDisc* discs;
+	list_DBtn*	dbtns;
 } frame_t;
 
 /* create or get frame struct */
@@ -46,16 +48,19 @@ void frame_unselect_card();
 void draw_frame_cards();
 void draw_frame_decks();
 void draw_frame_discs();
+void draw_frame_btns();
 
 /* update frame */
 void update_frame_cards();
 void update_frame_decks();
 void update_frame_discs();
+void update_frame_btns();
 
 /* add to frame */
 void frame_add_card(DCard* dcard);
 void frame_add_deck(DDeck* ddeck);
 void frame_add_disc(DDisc* ddisc);
+void frame_add_btn(DBtn* dbtn);
 
 /* destroy all cards */
 void dest_frame();

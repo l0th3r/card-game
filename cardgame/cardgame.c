@@ -5,7 +5,7 @@
 
 #include "DCard.h"
 #include "DDeck.h"
-#include "DSlot.h"
+#include "DBtn.h"
 
 #include "frame_container.h"
 #include "mouse_handler.h"
@@ -20,7 +20,9 @@ int main()
     InitWindow(1800, 1000, "main window");
 
     DDeck_init(200, 200);
-    DDisc_init(400, 400);
+    DDisc_init(600, 200);
+    DBtn_init(BTN_ADD_DECK, "Add Deck", BLUE, 100, 100);
+    DBtn_init(BTN_RESTORE, "Reset", VIOLET, 20, 20);
 
     update_mouse();
     /* RUNTIME */

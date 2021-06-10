@@ -19,11 +19,7 @@ DDeck* DDeck_init(int x, int y)
 
 void DDeck_update(DDeck* ddeck)
 {
-	if (is_object_hovered(&ddeck->pos))
-		ddeck->isHovered = true;
-	else
-		ddeck->isHovered = false;
-
+	ddeck->isHovered = is_object_hovered(&ddeck->pos);
 	DDeck_draw(ddeck);
 }
 

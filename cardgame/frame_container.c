@@ -14,7 +14,7 @@ frame_t* init_frame()
 			frame->can_move_cards = true;
 			frame->can_move_decks = false;
 			frame->can_move_discs = false;
-			frame->can_move_slots = false;
+			frame->can_move_btns = false;
 
 			frame->is_hovering = false;
 			frame->can_click_this_frame = true;
@@ -22,6 +22,7 @@ frame_t* init_frame()
 			frame->cards = create_list_DCard();
 			frame->decks = create_list_DDeck();
 			frame->discs = create_list_DDisc();
+			frame->dbtns = create_list_DBtn();
 		}
 	}
 	return(frame);
@@ -35,6 +36,7 @@ void update_frame()
 	frame->is_hovering = false;
 	frame->can_click_this_frame = true;
 
+	draw_frame_btns();
 	draw_frame_discs();
 	draw_frame_decks();
 	draw_frame_cards();
@@ -42,9 +44,13 @@ void update_frame()
 	update_frame_cards();
 	update_frame_decks();
 	update_frame_discs();
-
-	if (mouse->holded && IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
+	update_frame_btns();
+	
+	if (mouse->left_r)
+	{
 		mouse_release();
+		frame->holded_card = NULL;
+	}
 
 	/* change cursor if something is hovered */
 	if (frame->is_hovering)
@@ -75,6 +81,14 @@ void draw_frame_discs()
 
 	/* UPDATE THE DRAW ON DECK */
 	FOREACH_LIST(DDisc, ddisc, frame->discs->_list, { DDisc_update(ddisc); });
+}
+
+void draw_frame_btns()
+{
+	frame_t* frame = init_frame();
+
+	/* UPDATE THE DRAW ON BTN */
+	FOREACH_LIST(DBtn, dbtn, frame->dbtns->_list, { DBtn_update(dbtn); });
 }
 
 void update_frame_cards()
@@ -125,8 +139,11 @@ void update_frame_decks()
 			grab_object(&ddeck->pos);
 			frame->can_click_this_frame = false;
 		}
-		else if (!mouse->holded && mouse->left_p && ddeck->isHovered)
+		else if (!mouse->holded && mouse->left_p && ddeck->isHovered && frame->can_click_this_frame)
+		{
 			DDeck_draw_card(ddeck);
+			frame->can_click_this_frame = false;
+		}
 	});
 }
 
@@ -154,6 +171,29 @@ void update_frame_discs()
 			list_DCard_remove(frame->cards, frame->holded_card->frame_index);
 			DDisc_add_card(ddisc, frame->holded_card);
 			frame_unselect_card();
+			frame->can_click_this_frame = false;
+		}
+	});
+}
+
+void update_frame_btns()
+{
+	frame_t* frame = init_frame();
+	mouse_t* mouse = get_mouse();
+
+	/*
+		UPDATE THE CLICK ON BTNS
+		Update the click on reverse to always privilege the BTNS drawed on top
+	*/
+	FOREACH_LIST_REVERSE(DBtn, dbtn, frame->dbtns->_list,
+	{
+		if (dbtn->isHovered)
+			frame->is_hovering = true;
+
+		if (!mouse->holded && mouse->left_p && dbtn->isHovered && frame->can_click_this_frame)
+		{
+			DBtn_event(dbtn);
+			frame->can_click_this_frame = false;
 		}
 	});
 }
@@ -192,6 +232,12 @@ void frame_add_disc(DDisc* ddisc)
 	list_DDisc_add(frame->discs, ddisc);
 }
 
+void frame_add_btn(DBtn* dbtn)
+{
+	frame_t* frame = init_frame();
+	list_DBtn_add(frame->dbtns, dbtn);
+}
+
 void dest_frame()
 {
 	frame_t* frame = init_frame();
@@ -199,10 +245,12 @@ void dest_frame()
 	FOREACH_LIST(DCard, dcard, frame->cards->_list, { DCard_destroy(dcard); });
 	FOREACH_LIST(DDeck, ddeck, frame->decks->_list, { DDeck_destroy(ddeck); });
 	FOREACH_LIST(DDisc, ddisc, frame->discs->_list, { DDisc_destroy(ddisc); });
+	FOREACH_LIST(DBtn, dbtn, frame->dbtns->_list, { DBtn_destroy(dbtn); });
 
 	destroy_list_DCard(frame->cards);
 	destroy_list_DDeck(frame->decks);
 	destroy_list_DDisc(frame->discs);
+	destroy_list_DBtn(frame->dbtns);
 
 	free(frame);
 }
@@ -210,3 +258,4 @@ void dest_frame()
 LIST_DEFINE(DCard);
 LIST_DEFINE(DDeck);
 LIST_DEFINE(DDisc);
+LIST_DEFINE(DBtn);

@@ -14,7 +14,7 @@ endif()
 
 add_subdirectory(${LIBCARDS} ${LIBCARDS})
 
-add_executable(cardgame cardgame.c DCard.c DDeck.c frame_container.c mouse_handler.c)
+add_executable(cardgame cardgame.c DBtn.c DCard.c DDeck.c DDisc.c DPlate.c frame_container.c mouse_handler.c)
 
 if (WIN32)
     add_custom_command (

@@ -14,4 +14,6 @@
 #define BW 100			/* BUTTON WIDTH */
 #define BH 25			/* BUTTON HEIGHT */
 
+#define PP 50			/* PLATE PADDING */
+
 #endif

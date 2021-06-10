@@ -22,6 +22,9 @@
     <ClCompile Include="DBtn.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DPlate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\CMakeLists.txt" />
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="DBtn.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DPlate.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

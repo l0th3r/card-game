@@ -19,6 +19,8 @@ frame_t* init_frame()
 			frame->is_hovering = false;
 			frame->can_click_this_frame = true;
 
+			frame->plate = NULL;
+
 			frame->cards = create_list_DCard();
 			frame->decks = create_list_DDeck();
 			frame->discs = create_list_DDisc();
@@ -35,6 +37,9 @@ void update_frame()
 
 	frame->is_hovering = false;
 	frame->can_click_this_frame = true;
+
+	if(frame->plate)
+		DPlate_update(frame->plate);
 
 	draw_frame_btns();
 	draw_frame_discs();
@@ -53,10 +58,15 @@ void update_frame()
 	}
 
 	/* change cursor if something is hovered */
-	if (frame->is_hovering)
+	if (mouse->holded)
+		SetMouseCursor(MOUSE_CURSOR_RESIZE_ALL);
+	else if (frame->is_hovering)
 		SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
 	else
 		SetMouseCursor(MOUSE_CURSOR_ARROW);
+
+	DrawText(TextFormat("Right click to move elements (all of them)"), 10, 5, 20, BLACK);
+	DrawText(TextFormat("Left click to interact with elements"), 10, 30, 20, BLACK);
 }
 
 void draw_frame_cards()
@@ -226,25 +236,62 @@ void frame_unselect_card()
 void frame_add_card(const DCard* dcard)
 {
 	frame_t* frame = init_frame();
+	place_in_plate(&dcard->pos);
 	list_DCard_add(frame->cards, dcard);
 }
 
 void frame_add_deck(const DDeck* ddeck)
 {
 	frame_t* frame = init_frame();
+	place_in_plate(&ddeck->pos);
 	list_DDeck_add(frame->decks, ddeck);
 }
 
 void frame_add_disc(const DDisc* ddisc)
 {
 	frame_t* frame = init_frame();
+	place_in_plate(&ddisc->pos);
 	list_DDisc_add(frame->discs, ddisc);
 }
 
 void frame_add_btn(const DBtn* dbtn)
 {
 	frame_t* frame = init_frame();
+	place_in_plate(&dbtn->pos);
 	list_DBtn_add(frame->dbtns, dbtn);
+}
+
+void frame_add_plate(const DPlate* dplate)
+{
+	frame_t* frame = init_frame();
+	if (!frame->plate)
+		frame->plate = dplate;
+}
+
+void place_in_plate(Vector2* coord)
+{
+	frame_t* frame = init_frame();
+
+	if (frame->plate)
+	{
+		/* x */
+		while (!DPlate_compare_x(frame->plate, coord->x))
+		{
+			if (coord->x < frame->plate->pos.x)
+				coord->x += 10;
+			else
+				coord->x -= 10;
+		}
+
+		/* y */
+		while (!DPlate_compare_y(frame->plate, coord->y))
+		{
+			if (coord->y < frame->plate->pos.y)
+				coord->y += 10;
+			else
+				coord->y -= 10;
+		}
+	}
 }
 
 void dest_frame()
@@ -260,6 +307,8 @@ void dest_frame()
 	destroy_list_DDeck(frame->decks);
 	destroy_list_DDisc(frame->discs);
 	destroy_list_DBtn(frame->dbtns);
+
+	DPlate_destroy(frame->plate);
 
 	free(frame);
 }

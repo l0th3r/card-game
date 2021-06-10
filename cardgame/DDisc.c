@@ -19,11 +19,7 @@ DDisc* DDisc_init(int x, int y)
 
 void DDisc_update(DDisc* ddisc)
 {
-	if (is_object_hovered(&ddisc->pos))
-		ddisc->isHovered = true;
-	else
-		ddisc->isHovered = false;
-
+	ddisc->isHovered = is_object_hovered(&ddisc->pos);
 	DDisc_draw(ddisc);
 }
 

@@ -6,6 +6,8 @@
 
 #include "DCard.h"
 #include "DSizes.h"
+#include "DPlate.h"
+#include "frame_container.h"
 
 /*DrawText(TextFormat("x=%0.f y=%0.f", m->holded->x, m->holded->y), 5, 5, 10, BLACK);*/
 
@@ -96,6 +98,7 @@ void grab_object(Vector2* coord)
 void check_holded()
 {
 	mouse_t* m = get_mouse();
+	frame_t* f = init_frame();
 
 	if (m->holded != NULL)
 	{
@@ -103,8 +106,19 @@ void check_holded()
 			m->holded = NULL;
 		else
 		{
-			m->holded->x = m->x;
-			m->holded->y = m->y;
+			if(f->plate)
+			{
+				if(DPlate_compare_x(f->plate, m->x))
+					m->holded->x = m->x;
+
+				if (DPlate_compare_y(f->plate, m->y))
+					m->holded->y = m->y;
+			}
+			else
+			{
+				m->holded->x = m->x;
+				m->holded->y = m->y;
+			}
 		}
 	}
 }

@@ -11,7 +11,8 @@ DDisc* DDisc_init(int x, int y)
 		ddisc->pile = create_list_Card_t();
 
 		ddisc->isHovered = false;
-		frame_add_disc(ddisc);
+		ddisc->frame_index = -1;
+		frame_add_ddisc(ddisc);
 	}
 
 	return ddisc;

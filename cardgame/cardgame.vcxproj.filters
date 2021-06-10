@@ -4,25 +4,25 @@
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\cardgame.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DBtn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DCard.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DDeck.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DDisc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DPlate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\frame_container.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\mouse_handler.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DDisc.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DBtn.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DPlate.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,13 +35,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DDisc.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DBtn.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DPlate.h">
+    <ClInclude Include="frame_func_format.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

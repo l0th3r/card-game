@@ -14,6 +14,7 @@ typedef struct
 	Vector2 pos;
 	Deck_t* d;
 	bool isHovered;
+	int frame_index;
 } DDeck;
 
 DDeck* DDeck_init(int x, int y);

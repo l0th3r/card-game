@@ -21,7 +21,7 @@ DBtn* DBtn_init(btn_type type, const char* content, Color color, int x, int y)
 
 		dbtn->isHovered = false;
 		dbtn->frame_index = 0;
-		frame_add_btn(dbtn);
+		frame_add_dbtn(dbtn);
 	}
 
 	return dbtn;

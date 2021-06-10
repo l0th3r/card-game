@@ -21,6 +21,7 @@ int main()
 
     DPlate_init(500, 500, 800, 500);
     DDisc_init(747, 590);
+    
     DBtn_init(BTN_ADD_DECK, "Add Deck", VIOLET, 175, 280);
 
     update_mouse();

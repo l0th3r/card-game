@@ -398,13 +398,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\cardgame.c" />
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DBtn.c" />
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DCard.c" />
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DDeck.c" />
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DDisc.c" />
+    <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\DPlate.c" />
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\frame_container.c" />
     <ClCompile Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\mouse_handler.c" />
-    <ClCompile Include="DBtn.c" />
-    <ClCompile Include="DDisc.c" />
-    <ClCompile Include="DPlate.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\etudes\BELLECOUR\year1\PROG\raylib\mainproject\cardgame\ZERO_CHECK.vcxproj">
@@ -423,9 +423,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DBtn.h" />
-    <ClInclude Include="DDisc.h" />
-    <ClInclude Include="DPlate.h" />
+    <ClInclude Include="frame_func_format.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

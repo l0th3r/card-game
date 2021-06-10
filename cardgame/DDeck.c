@@ -10,8 +10,9 @@ DDeck* DDeck_init(int x, int y)
 		ddeck->pos.y = y;
 
 		ddeck->d = create_classic_52(2);
+		ddeck->frame_index = -1;
 
-		frame_add_deck(ddeck);
+		frame_add_ddeck(ddeck);
 	}
 
 	return ddeck;

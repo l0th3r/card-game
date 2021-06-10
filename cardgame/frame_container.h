@@ -4,6 +4,7 @@
 
 #include <list_generic.h>
 #include "foreach.h"
+#include "frame_func_format.h"
 
 #include "DCard.h"
 #include "DDeck.h"
@@ -16,6 +17,11 @@ LIST_DECLARE(DCard);
 LIST_DECLARE(DDeck);
 LIST_DECLARE(DBtn);
 
+FRAME_FUNC_DECL(DCard, dcard, cards);
+FRAME_FUNC_DECL(DDeck, ddeck, decks);
+FRAME_FUNC_DECL(DDisc, ddisc, discs);
+FRAME_FUNC_DECL(DBtn, dbtn, dbtns);
+
 typedef struct
 {
 	DCard* holded_card;
@@ -23,7 +29,7 @@ typedef struct
 	bool can_move_cards;
 	bool can_move_decks;
 	bool can_move_discs;
-	bool can_move_btns;
+	bool can_move_dbtns;
 
 	bool is_hovering;
 	bool can_click_this_frame;
@@ -51,23 +57,7 @@ void frame_unselect_card();
 /* move an element until it is in the plate (pass its position as a parameter) */
 void place_in_plate(Vector2* coord);
 
-/* draw frame */
-void draw_frame_cards();
-void draw_frame_decks();
-void draw_frame_discs();
-void draw_frame_btns();
-
-/* update frame */
-void update_frame_cards();
-void update_frame_decks();
-void update_frame_discs();
-void update_frame_btns();
-
-/* add to frame */
-void frame_add_card(const DCard* dcard);
-void frame_add_deck(const DDeck* ddeck);
-void frame_add_disc(const DDisc* ddisc);
-void frame_add_btn(const DBtn* dbtn);
+/* add the plate to frame */
 void frame_add_plate(const DPlate* dplate);
 
 /* destroy all cards */

@@ -14,6 +14,7 @@ typedef struct
 	Vector2 pos;
 	list_Card_t* pile;
 	bool isHovered;
+	int frame_index;
 } DDisc;
 
 DDisc* DDisc_init(int x, int y);
